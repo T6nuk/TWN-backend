@@ -25,7 +25,6 @@ exports.getResident = async (req, res) => {
         const residents = await Resident.find({});
 
         res.status(200).json(residents);
-        //console.log(res.body.firstName);
     } catch (error) {
         console.log(error.message);
         res.status(500).json({message: error.message})
@@ -111,15 +110,13 @@ exports.deleteApplication = async (req, res) => {
         console.log(application);
         const appStatus = application.status;
         const objectStatus = application.ObjectStatus;
-        console.log(appStatus + objectStatus);
-        //const appTry = await Application.findByIdAndUpdate({})
+        console.log('app status: '+appStatus +'' + 'object status: ' + objectStatus);
         if (appStatus === 'IN_REVIEW' && objectStatus !== 'DELETED') {
             await Application.updateOne({'_id': req.params.id}, {"$set": {'ObjectStatus': 'DELETED'}})
             res.status(200).json(application);
         } else {
             console.log("something went wrong")
         }
-        //const appById = await Application.find({''})
     } catch (error) {
         console.log(error.message);
         res.status(500).json({message: error.message});
