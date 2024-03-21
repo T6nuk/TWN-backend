@@ -69,6 +69,16 @@ exports.postApplication = async (req, res) => {
     }
 };
 
+exports.getAllApplications = async (req, res) => {
+    try {
+        const applications = await Application.find({});
+        res.status(200).json(applications);
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).json({message: error.message});
+    }
+}
+
 exports.getApplicationById = async (req, res) => {
     try {
         const appById = await Application.findOne({'_id': req.params.id});
