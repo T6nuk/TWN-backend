@@ -5,6 +5,7 @@ to run:  nodemon server.js
 data structure for API: 
 
  Post resident
+ 
 {
     "firstName": "Marju",
     "lastName": "Kuusik",
