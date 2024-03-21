@@ -94,7 +94,7 @@ exports.getApplicationById = async (req, res) => {
     }
 }
 
-exports.getApplications = async (req, res) => {
+exports.getApplicationsByStatus = async (req, res) => {
     try {
         const applications = await Application.find({'ObjectStatus': req.params.status});
         res.status(200).json(applications);

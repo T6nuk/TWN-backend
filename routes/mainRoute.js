@@ -8,7 +8,7 @@ router.get('/resident', mainController.getResident);
 
 router.post('/application', mainController.postApplication);
 router.get('/applications', mainController.getAllApplications);
-router.get('/applications/:status', mainController.getApplications);
+router.get('/applications/:status', mainController.getApplicationsByStatus);
 router.get('/application/:id', mainController.getApplicationById);
 router.delete('/application/delete/:id', mainController.deleteApplication);
 
